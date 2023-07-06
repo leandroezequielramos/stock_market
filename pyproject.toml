@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "stock-market"
+version = "0.1.0"
+description = "A little api to get stock information"
+authors = ["Leandro Ramos <leandroezequielramos@gmail.com>"]
+readme = "README.md"
+packages = [{include = "stock_market"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "0.99.1"
+SQLAlchemy = "^2.0.18"
+uvicorn = "^0.22.0"
+aioredis = "^2.0.1"
+pydantic = {version = "^1.10.11", extras = ["email"]}
+sqlalchemy_utils = "^0.41.1"
+psycopg2 = "^2.9.6"
+alembic = "^1.11.1"
+ 
+
+[tool.poetry.group.dev.dependencies]
+ipdb = "^0.13.13"
+ipython = "^8.14.0"
+
+[tool.poetry.scripts]
+start = "stock_market.main:start"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
