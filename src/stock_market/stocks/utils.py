@@ -6,7 +6,7 @@ from stock_market.stocks.schemas import (
     StockDataOut,
     MarketValueOut,
 )
-from stock_market.stocks.exceptions import InvalidAPICall
+from stock_market.exceptions import InvalidAPICall
 
 
 def _convert_stock_data_output(stock_in: StockDataIn) -> StockDataOut:

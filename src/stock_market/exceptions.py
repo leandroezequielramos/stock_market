@@ -44,8 +44,28 @@ class StockException(Exception):
 
 class InvalidAPICall(StockException):
     """
-    exception raised when and identifier is not a uuid valid
+    exception raised when API call fails
     """
 
     def __init__(self, reason):
         super(InvalidAPICall, self).__init__(msg=f"INVALID CALL: {reason}")
+
+
+class UserAlreadyRegistered(StockException):
+    """
+    exception raised when API call fails
+    """
+
+    def __init__(self, email: str):
+        super(UserAlreadyRegistered, self).__init__(
+            msg=f"User with {email} already registered"
+        )
+
+
+class DBError(StockException):
+    """
+    exception raised when API call fails
+    """
+
+    def __init__(self):
+        super(DBError, self).__init__(msg=f"Imposible to reach data")

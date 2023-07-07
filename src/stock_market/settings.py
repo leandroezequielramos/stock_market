@@ -15,12 +15,14 @@ class Settings(BaseSettings):
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str
     POSTGRES_DB: str
+    ROOT_PATH: str = ""
     SQLALCHEMY_DATABASE_URI: Optional[PostgresDsn] = None
     APP_MODULE: str = "stock_market.main:app"
     HOST: IPvAnyAddress = "0.0.0.0"
     PORT: PositiveInt = 8000
     API_KEY_LENGTH: conint(gt=0) = DEFAULT_KEY_LENGTH
     STOCK_API_KEY: str = DEFAULT_STOCK_API_KEY
+    DEBUG_MODE: bool = False
 
     # Timezone
     DEFAULT_TIMEZONE: str = "Etc/UTC"

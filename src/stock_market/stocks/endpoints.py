@@ -4,7 +4,7 @@ from stock_market.settings import settings
 from stock_market.constants import STOCK_URL
 from stock_market.auth import get_api_key
 from stock_market.stocks.utils import fetch_stock_data
-from stock_market.stocks.exceptions import StockException
+from stock_market.exceptions import StockException
 
 stock_router = APIRouter()
 

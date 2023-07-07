@@ -5,7 +5,13 @@ from stock_market.api import api_router
 from stock_market.version import __API__VERSION
 from stock_market.settings import settings
 
-app = FastAPI()
+app = FastAPI(
+    title="Stock Market API",
+    description="An API for getting stock information",
+    version=__API__VERSION,
+    root_path=settings.ROOT_PATH,
+    debug=settings.DEBUG_MODE,
+)
 
 
 @app.get("/version")
