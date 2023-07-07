@@ -1,9 +1,9 @@
-from typing import Union
 import uvicorn
 from fastapi import FastAPI
 from stock_market.api import api_router
 from stock_market.version import __API__VERSION
 from stock_market.settings import settings
+
 
 app = FastAPI(
     title="Stock Market API",

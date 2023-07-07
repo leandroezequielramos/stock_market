@@ -22,7 +22,7 @@ class Settings(BaseSettings):
     PORT: PositiveInt = 8000
     API_KEY_LENGTH: conint(gt=0) = DEFAULT_KEY_LENGTH
     STOCK_API_KEY: str = DEFAULT_STOCK_API_KEY
-    DEBUG_MODE: bool = False
+    DEBUG_MODE: bool = True
 
     # Timezone
     DEFAULT_TIMEZONE: str = "Etc/UTC"

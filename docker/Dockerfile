@@ -17,6 +17,7 @@ WORKDIR /app
 
 COPY poetry.lock pyproject.toml ./
 COPY alembic /alembic
+COPY resources/migrate_db /usr/local/bin
 
 RUN poetry install
 

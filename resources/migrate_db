@@ -1,0 +1,15 @@
+#! /usr/local/bin/python
+import os
+import alembic.config
+
+def migrate_db():
+    os.chdir("/alembic")
+    alembic_args = [
+        "upgrade",
+        "head",
+    ]
+    alembic.config.main(argv=alembic_args)
+
+
+if __name__ == "__main__":
+    migrate_db()
