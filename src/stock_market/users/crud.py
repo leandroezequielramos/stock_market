@@ -25,6 +25,15 @@ class CRUDUser:
             .first()
         )
 
+    def get_user_by_api_key(
+        self, api_key: str, db: Session
+    ) -> Optional[UserModel]:
+        return (
+            db.query(self._model)
+            .filter(self._model.api_key == api_key)
+            .first()
+        )
+
     def create(
         self, db: Session, *, obj_in: UserRegisterIn, api_key: str
     ) -> UserModel:
