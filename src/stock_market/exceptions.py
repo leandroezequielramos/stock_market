@@ -47,8 +47,19 @@ class InvalidAPICall(StockException):
     exception raised when API call fails
     """
 
-    def __init__(self, reason):
+    def __init__(self, reason: str):
         super(InvalidAPICall, self).__init__(msg=f"INVALID CALL: {reason}")
+
+
+class RemoteStockAPIError(StockException):
+    """
+    exception raised when remote API call fails
+    """
+
+    def __init__(self):
+        super(RemoteStockAPIError, self).__init__(
+            msg=f"stock information is unreachable"
+        )
 
 
 class UserAlreadyRegistered(StockException):

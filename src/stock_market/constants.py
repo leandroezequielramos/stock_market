@@ -7,3 +7,4 @@ STOCK_URL = (
     "symbol={symbol}&outputsize=compact&apikey={api_key}"
 )
 DEFAULT_STOCK_API_KEY = "X86NOH6II01P7R24"
+DEFAULT_LIMITER_RULE = "5/minute"

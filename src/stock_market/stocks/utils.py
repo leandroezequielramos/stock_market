@@ -6,7 +6,7 @@ from stock_market.stocks.schemas import (
     StockDataOut,
     MarketValueOut,
 )
-from stock_market.exceptions import InvalidAPICall
+from stock_market.exceptions import InvalidAPICall, RemoteStockAPIError
 
 
 def _convert_stock_data_output(stock_in: StockDataIn) -> StockDataOut:
@@ -34,7 +34,10 @@ def _convert_stock_data_output(stock_in: StockDataIn) -> StockDataOut:
 def fetch_stock_data(stock_url: str, api_key: str, symbol: str) -> StockDataIn:
     r = requests.get(stock_url.format(symbol=symbol, api_key=api_key))
     data = r.json()
+    print(data)
     if "Error Message" in data.keys():
         raise InvalidAPICall(data["Error Message"])
+    if "Meta Data" not in data.keys():
+        raise RemoteStockAPIError()
     stock_in = StockDataIn.parse_obj(data)
     return _convert_stock_data_output(stock_in=stock_in)

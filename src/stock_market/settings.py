@@ -1,5 +1,9 @@
 from typing import Optional, Dict, Any
-from stock_market.constants import DEFAULT_KEY_LENGTH, DEFAULT_STOCK_API_KEY
+from stock_market.constants import (
+    DEFAULT_KEY_LENGTH,
+    DEFAULT_STOCK_API_KEY,
+    DEFAULT_LIMITER_RULE,
+)
 from pydantic import (
     BaseSettings,
     PostgresDsn,
@@ -22,7 +26,8 @@ class Settings(BaseSettings):
     PORT: PositiveInt = 8000
     API_KEY_LENGTH: conint(gt=0) = DEFAULT_KEY_LENGTH
     STOCK_API_KEY: str = DEFAULT_STOCK_API_KEY
-    DEBUG_MODE: bool = True
+    DEBUG_MODE: bool = False
+    LIMITER_RULE: str = DEFAULT_LIMITER_RULE
 
     # Timezone
     DEFAULT_TIMEZONE: str = "Etc/UTC"
