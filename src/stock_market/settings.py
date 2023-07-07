@@ -1,4 +1,5 @@
 from typing import Optional, Dict, Any
+from enum import Enum
 from stock_market.constants import (
     DEFAULT_KEY_LENGTH,
     DEFAULT_STOCK_API_KEY,
@@ -14,12 +15,23 @@ from pydantic import (
 )
 
 
+class LoggingEnum(str, Enum):
+    """Logging configuration Enum."""
+
+    critical = "CRITICAL"
+    error = "ERROR"
+    warning = "WARNING"
+    info = "INFO"
+    debug = "DEBUG"
+
+
 class Settings(BaseSettings):
     POSTGRES_SERVER: str
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str
     POSTGRES_DB: str
     ROOT_PATH: str = ""
+    LOGLEVEL: LoggingEnum = "DEBUG"
     SQLALCHEMY_DATABASE_URI: Optional[PostgresDsn] = None
     APP_MODULE: str = "stock_market.main:app"
     HOST: IPvAnyAddress = "0.0.0.0"

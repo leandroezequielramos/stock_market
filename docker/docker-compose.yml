@@ -23,17 +23,6 @@ services:
     ports:
       - 8000:8000
 
-  cache-db:
-    image: redis:6.2.6
-    logging: *logging
-    restart: unless-stopped
-    env_file:
-      - ../.env
-    volumes:
-      - cache_db_data:/data
-    ports:
-      - 6379:6379
-
   db:
     image: postgres:12.4
     volumes:
