@@ -1,9 +1,12 @@
+"""stocks schemas."""
 from datetime import date
 from typing import OrderedDict, Dict, Union
 from pydantic import BaseModel, Field
 
 
 class StockMetadataIn(BaseModel):
+    """Stock Metadata  schema"""
+
     class Config:
         allow_population_by_field_name = True
 
@@ -12,6 +15,8 @@ class StockMetadataIn(BaseModel):
 
 
 class StockInfoIn(BaseModel):
+    """Stock information schema"""
+
     class Config:
         allow_population_by_field_name = True
 
@@ -22,6 +27,8 @@ class StockInfoIn(BaseModel):
 
 
 class StockDataIn(BaseModel):
+    """Stock data from external api call"""
+
     class Config:
         allow_population_by_field_name = True
 
@@ -32,6 +39,8 @@ class StockDataIn(BaseModel):
 
 
 class MarketValueOut(BaseModel):
+    """Stock Market value output schema"""
+
     open: float
     high: float
     low: float
@@ -39,6 +48,8 @@ class MarketValueOut(BaseModel):
 
 
 class StockDataOut(BaseModel):
+    """stock data output schema"""
+
     name: str
     last_refresh: date
     market_value: MarketValueOut

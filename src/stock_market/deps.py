@@ -3,10 +3,13 @@ from stock_market.db.database import SessionLocal
 
 
 def get_db() -> Generator:
-    """Get a db Session.
+    """
+    gets database session.
 
-    Yields:
-        Generator: A db Session as a generator
+    Yields
+    ------
+    Generator
+        A db session as a generator
     """
     try:
         db = SessionLocal()

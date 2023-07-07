@@ -13,10 +13,13 @@ FORMATTER = DefaultFormatter(
 
 
 def get_console_handler() -> logging.Handler:
-    """Get a handler that logs to stdout.
+    """
+    gets logger console handler
 
-    Returns:
-        logging.Handler: A configured console handler
+    Returns
+    -------
+    logging.Handler
+        logger console handler
     """
     console_handler = logging.StreamHandler(sys.stdout)
     console_handler.setFormatter(FORMATTER)
@@ -24,15 +27,18 @@ def get_console_handler() -> logging.Handler:
 
 
 def get_logger(logger_name: str) -> logging.Logger:
-    """Get a configured logger.
+    """
+    gets a logger instance
 
-    Should be used with `__name__`
+    Parameters
+    ----------
+    logger_name : str
+        name to print in logging
 
-    Args:
-        logger_name (str): The logger name
-
-    Returns:
-        logging.Logger: A configured logger
+    Returns
+    -------
+    logging.Logger
+        logger built
     """
     logger = logging.getLogger(logger_name)
     logger.setLevel(settings.LOGLEVEL.value)

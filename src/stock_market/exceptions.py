@@ -1,3 +1,4 @@
+"""Exceptions definition."""
 from typing import List, Any
 
 
@@ -48,6 +49,14 @@ class InvalidAPICall(StockException):
     """
 
     def __init__(self, reason: str):
+        """
+        class constructor
+
+        Parameters
+        ----------
+        reason : str
+            reason of failure
+        """
         super(InvalidAPICall, self).__init__(msg=f"INVALID CALL: {reason}")
 
 
@@ -57,6 +66,9 @@ class RemoteStockAPIError(StockException):
     """
 
     def __init__(self):
+        """
+        class constructor
+        """
         super(RemoteStockAPIError, self).__init__(
             msg=f"stock information is unreachable"
         )
@@ -64,10 +76,18 @@ class RemoteStockAPIError(StockException):
 
 class UserAlreadyRegistered(StockException):
     """
-    exception raised when API call fails
+    exception raised when try to register an already registered user
     """
 
     def __init__(self, email: str):
+        """
+        class constructor
+
+        Parameters
+        ----------
+        email : str
+            user email
+        """
         super(UserAlreadyRegistered, self).__init__(
             msg=f"User with {email} already registered"
         )
@@ -79,4 +99,7 @@ class DBError(StockException):
     """
 
     def __init__(self):
+        """
+        class constructor
+        """
         super(DBError, self).__init__(msg=f"Imposible to reach data")

@@ -1,3 +1,4 @@
+"""Users endpoint definition."""
 from fastapi import APIRouter, Depends, status, HTTPException
 from sqlalchemy.orm import Session
 from pydantic import EmailStr
@@ -15,6 +16,26 @@ users_router = APIRouter()
 async def signup(
     user_data: UserRegisterIn, db: Session = Depends(get_db)
 ) -> UserRegisterOut:
+    """
+    signup procedure. Takes user data, creates a user and answer with API KEY
+
+    Parameters
+    ----------
+    user_data : UserRegisterIn
+        User data from request
+    db : Session, optional
+        database session, by default Depends(get_db)
+
+    Returns
+    -------
+    UserRegisterOut
+        returns user api key
+
+    Raises
+    ------
+    HTTPException
+        Raise when user cannot be signedup
+    """
     try:
         system_api_keys = user_crud.get_system_api_keys(db=db)
         result = user_crud.create(
@@ -35,6 +56,26 @@ async def signup(
 async def get_user_api_key(
     user_email: EmailStr, db: Session = Depends(get_db)
 ) -> UserRegisterOut:
+    """
+    gets a user api key providing user email
+
+    Parameters
+    ----------
+    user_email : EmailStr
+        user email
+    db : Session, optional
+        database session, by default Depends(get_db)
+
+    Returns
+    -------
+    UserRegisterOut
+        user api key
+
+    Raises
+    ------
+    HTTPException
+        raised when user doesn't exist at database
+    """
     user = user_crud.get_user_by_email(user_email=user_email, db=db)
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
@@ -45,6 +86,26 @@ async def get_user_api_key(
 async def delete_user(
     user_email: EmailStr, db: Session = Depends(get_db)
 ) -> str:
+    """
+    deletes a user from database using their email as id
+
+    Parameters
+    ----------
+    user_email : EmailStr
+        user email
+    db : Session, optional
+        database session, by default Depends(get_db)
+
+    Returns
+    -------
+    str
+        Message telling caller user was successfully deleted
+
+    Raises
+    ------
+    HTTPException
+        raised when user with email is not present at database
+    """
     user = user_crud.delete_user_by_email(user_email=user_email, db=db)
     if not user:
         raise HTTPException(status_code=404, detail="User not found")

@@ -1,3 +1,4 @@
+"""Defines project settings"""
 from typing import Optional, Dict, Any
 from enum import Enum
 from stock_market.constants import (
@@ -26,6 +27,8 @@ class LoggingEnum(str, Enum):
 
 
 class Settings(BaseSettings):
+    """Project settings definition"""
+
     POSTGRES_SERVER: str
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str

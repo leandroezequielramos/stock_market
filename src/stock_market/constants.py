@@ -1,3 +1,4 @@
+"""General purpose constants"""
 NAME_MAX_LENGTH = 50
 LASTNAME_MAX_LENGTH = 50
 DEFAULT_KEY_LENGTH = 16

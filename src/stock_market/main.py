@@ -1,3 +1,4 @@
+"""Application main module."""
 import uvicorn
 from fastapi import FastAPI
 from slowapi.errors import RateLimitExceeded
@@ -22,6 +23,14 @@ app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 @app.get("/version")
 async def version():
+    """
+    gets api version
+
+    Returns
+    -------
+    Dict
+        returns api version
+    """
     return {"version": __API__VERSION}
 
 
@@ -29,6 +38,9 @@ app.include_router(api_router)
 
 
 def start():
+    """
+    starts the application.
+    """
     uvicorn.run(
         settings.APP_MODULE,
         host=str(settings.HOST),
