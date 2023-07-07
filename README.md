@@ -21,6 +21,10 @@ start.sh and stop.sh scripts
 ## How to stop the server
 For stopping the server and databases execute: ./scripts/stop.sh from project home folder.
 
+## Checking the logs
+For checking stock api logs use the following command from project home:
+ $ docker compose -f docker/docker-compose.yml logs -f --tail=20 stock-market-api
+
 ## Settings
 In order to modify settings you can edit .env file at project home.
 The following settings are available:
