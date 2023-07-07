@@ -19,7 +19,6 @@ services:
       - ../.env
     depends_on:
       - db
-      - cache-db
     ports:
       - 8000:8000
 
@@ -36,8 +35,6 @@ services:
 volumes:
   pgdata:
     name: pgdata
-  cache_db_data:
-    name: cache_db_data
 
 networks:
   default:
