@@ -1,6 +1,7 @@
 """stocks schemas."""
 from datetime import date
-from typing import OrderedDict, Dict, Union
+from typing import Dict, OrderedDict, Union
+
 from pydantic import BaseModel, Field
 
 

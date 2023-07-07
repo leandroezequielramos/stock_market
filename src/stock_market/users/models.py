@@ -1,5 +1,6 @@
 """Defines user models."""
 from sqlalchemy import Column, Integer, String
+
 from stock_market.db.database import Base
 
 

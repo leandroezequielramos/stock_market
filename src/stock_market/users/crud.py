@@ -1,11 +1,13 @@
 """Defines User CRUD"""
-from fastapi.encoders import jsonable_encoder
 from typing import List, Optional
-from sqlalchemy.orm import Session
+
+from fastapi.encoders import jsonable_encoder
 from sqlalchemy.exc import IntegrityError, SQLAlchemyError
+from sqlalchemy.orm import Session
+
+from stock_market.exceptions import DBError, UserAlreadyRegistered
 from stock_market.users.models import UserModel
 from stock_market.users.schemas import UserRegisterIn
-from stock_market.exceptions import UserAlreadyRegistered, DBError
 
 
 class CRUDUser:

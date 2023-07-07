@@ -1,13 +1,14 @@
 """Users endpoint definition."""
-from fastapi import APIRouter, Depends, status, HTTPException
-from sqlalchemy.orm import Session
+from fastapi import APIRouter, Depends, HTTPException, status
 from pydantic import EmailStr
-from stock_market.users.schemas import UserRegisterIn, UserRegisterOut
+from sqlalchemy.orm import Session
+
 from stock_market.deps import get_db
-from stock_market.users.crud import user_crud
-from stock_market.users.utils import generate_api_key
+from stock_market.exceptions import DBError, UserAlreadyRegistered
 from stock_market.settings import settings
-from stock_market.exceptions import UserAlreadyRegistered, DBError
+from stock_market.users.crud import user_crud
+from stock_market.users.schemas import UserRegisterIn, UserRegisterOut
+from stock_market.users.utils import generate_api_key
 
 users_router = APIRouter()
 

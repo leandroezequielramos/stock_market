@@ -1,7 +1,7 @@
 """Base database session file."""
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, declarative_base
+from sqlalchemy.orm import declarative_base, sessionmaker
 from sqlalchemy_utils import create_database, database_exists
 
 from stock_market.settings import settings

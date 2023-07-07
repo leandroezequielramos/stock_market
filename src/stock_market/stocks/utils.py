@@ -1,15 +1,13 @@
 """stocks utils."""
-import requests
 from datetime import date, timedelta
+
+import requests
 from fastapi import HTTPException, status
-from stock_market.stocks.schemas import (
-    StockDataIn,
-    StockDataOut,
-    MarketValueOut,
-)
+
 from stock_market.exceptions import InvalidAPICall, RemoteStockAPIError
 from stock_market.logger import get_logger
-
+from stock_market.stocks.schemas import (MarketValueOut, StockDataIn,
+                                         StockDataOut)
 
 logger = get_logger("APICall")
 

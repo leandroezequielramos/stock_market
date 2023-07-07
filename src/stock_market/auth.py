@@ -1,7 +1,8 @@
 """Defines authentication mechanism."""
-from fastapi import HTTPException, status, Security, Depends
+from fastapi import Depends, HTTPException, Security, status
 from fastapi.security import APIKeyHeader
 from sqlalchemy.orm import Session
+
 from stock_market.deps import get_db
 from stock_market.users.crud import user_crud
 

@@ -1,4 +1,5 @@
 from typing import Generator
+
 from stock_market.db.database import SessionLocal
 
 

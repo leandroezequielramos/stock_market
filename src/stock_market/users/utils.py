@@ -1,5 +1,5 @@
-from typing import List
 import secrets
+from typing import List
 
 
 def generate_api_key(system_api_keys: List[str], nbytes: int) -> str:

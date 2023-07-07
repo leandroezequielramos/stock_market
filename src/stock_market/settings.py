@@ -1,19 +1,12 @@
 """Defines project settings"""
-from typing import Optional, Dict, Any
 from enum import Enum
-from stock_market.constants import (
-    DEFAULT_KEY_LENGTH,
-    DEFAULT_STOCK_API_KEY,
-    DEFAULT_LIMITER_RULE,
-)
-from pydantic import (
-    BaseSettings,
-    PostgresDsn,
-    IPvAnyAddress,
-    PositiveInt,
-    validator,
-    conint,
-)
+from typing import Any, Dict, Optional
+
+from pydantic import (BaseSettings, IPvAnyAddress, PositiveInt, PostgresDsn,
+                      conint, validator)
+
+from stock_market.constants import (DEFAULT_KEY_LENGTH, DEFAULT_LIMITER_RULE,
+                                    DEFAULT_STOCK_API_KEY)
 
 
 class LoggingEnum(str, Enum):
