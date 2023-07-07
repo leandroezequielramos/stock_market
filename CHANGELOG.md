@@ -7,3 +7,6 @@
     - api key generation
     - Dockerfile and building process
     - Dockercompose
+    - Implemented stock endpoint
+    - using slowapi to limit the number of request
+    - Users can be deleted using delete endpoint
