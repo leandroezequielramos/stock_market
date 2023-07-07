@@ -1,4 +1,4 @@
-## [UNRELEASED]
+## [0.1.0] 2023-07-07
 
 ### Added
     - Intial server structure
